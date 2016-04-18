@@ -8,18 +8,21 @@
 	<script src="task.js"></script>
 	<script src="urgentTask.js"></script>
 	<script src="taskRepo.js"></script>
+	<script src="taskServiceFacade.js"></script>
 	<script src="repoDecorator.js"></script>
 
 	</head>
 
 	<body ng-app='taskManager'>
-	<h1>Task Manager 123</h1>
-<div ng-controller='taskCtrl as ctrl'>
-	<div ng-repeat='task in ctrl.tasks'>
-	<input type='checkbox' ng-checked='task.completed'
-ng-click='task.complete()'>
-	{{task.name}}</div>
-</div>
+	<h1>Task Manager</h1>
+	<div ng-controller='taskCtrl as ctrl'>
+		<div ng-repeat='task in ctrl.tasks'>
+			<input type='checkbox' ng-checked='task.completed',
+			ng-click='ctrl.completeTask($index)'>
+			{{task.name}}
+		</div>
+		<p>{{ ctrl.tasks.length }} tasks</p>
+	</div>
 </body>
 
 </html>
